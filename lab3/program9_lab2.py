@@ -1,15 +1,13 @@
-message5=input("please enter your message: ")
-result = ""  
-countedChars = "" 
-
-for i in message5:
-        if i not in countedChars: 
-            count = 0
-            for j in message5: 
-                if j == i:
-                    count += 1
+message=input("please enter your message: ")
+result="" 
+counterChar=""
+for i in message:
+    counter=0
+    if i not in counterChar:
+        for j in message:
+            if j==i:
+                counter+=1
             
-            countedChars += i 
-            result += f"{i} --> {count}, "  
-print(result.rstrip(", "))
-
+        counterChar+=i
+        result+=f"{i}-->{counter},"
+print(result)

@@ -1,6 +1,7 @@
 username= "      Mohamed          Ahmed           "
 
 
+print(username)
 # 4.C
 
 result=""
