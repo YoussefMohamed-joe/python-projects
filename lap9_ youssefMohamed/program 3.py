@@ -4,12 +4,20 @@ def is_valid_sudoku(grid):
         col = set()
         box = set()
         for j in range(9):
-            if grid[j][i] != 0 and grid[i][j] != 0 and grid[3 * (i // 3) + j // 3][3 * (i % 3) + j % 3] != 0:
-                if grid[i][j] in row or grid[j][i] in col or grid[3 * (i // 3) + j // 3][3 * (i % 3) + j % 3] in box:
+            if grid[i][j] != 0:
+                if grid[i][j] in row:
                     return False
                 row.add(grid[i][j])
+            if grid[j][i] != 0:
+                if grid[j][i] in col:
+                    return False
                 col.add(grid[j][i])
-                box.add(grid[3 * (i // 3) + j // 3][3 * (i % 3) + j % 3])
+            boxValue = grid[3 * (i // 3) + j // 3][3 * (i % 3) + j % 3]
+            if not boxValue == 0:
+                if boxValue in box:
+                    return False
+                box.add(boxValue)
+
     return True
 
 grid = [

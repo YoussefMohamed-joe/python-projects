@@ -1,17 +1,25 @@
-def spiral_order(matrix):
+def spiral_order(matrix,n):
     result = []
-    for i in range(len(matrix[0])):
-        result.append(matrix[0][i])
-    for i in range( 1,len(matrix)):
-        result.append(matrix[i][-1])
-    for i in range(len(matrix) - 2, 0, -1):
-        result.append(matrix[-1][i])
-    for i in range(len(matrix[0]) - 1, 1, -1):
-        result.append(matrix[i][0])
-    for i in range(1, len(matrix) - 1):
-        result.append(matrix[i][0])
-    for i in range(1, len(matrix[0]) - 1):
-        result.append(matrix[1][i])
+    upper=0
+    lower=n-1
+    left=0
+    right=n-1
+    while  left <= right and upper <= lower:
+        for i in range(left, right + 1):
+            result.append(matrix[upper][i])
+        upper += 1
+
+        for i in range(upper, lower + 1):
+            result.append(matrix[i][right])
+        right -= 1
+
+        for i in range(right, left - 1, -1):
+            result.append(matrix[lower][i])
+        lower -= 1
+
+        for i in range(lower, upper - 1, -1):    
+            result.append(matrix[i][left])
+        left += 1
     return result
 
 
@@ -20,4 +28,4 @@ matrix = [
     [4, 5, 6],
     [7, 8, 9] ]
 
-print(spiral_order(matrix))
+print(spiral_order(matrix,3))
