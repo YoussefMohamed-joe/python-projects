@@ -7,7 +7,7 @@ counter=0
 for i in wordList[index]:
     solve.append("_")
 print(" ".join(solve))
-while counter < 7:
+while counter <= 7:
     guess=input("please enter your guess: ")
     guess=guess.lower()
     if guess in wordList[index]:
