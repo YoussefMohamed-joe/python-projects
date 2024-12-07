@@ -1,2 +1,0 @@
-
-    count=len(l)
